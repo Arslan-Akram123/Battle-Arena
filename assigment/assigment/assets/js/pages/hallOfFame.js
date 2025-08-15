@@ -1,6 +1,0 @@
-function initHallOfFameSection(){    
-    
-}
-
-
-/* your functions */
