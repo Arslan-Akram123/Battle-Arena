@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle team arena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,100;1,500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/screen.css">
+    <link rel="stylesheet" href="assets/css/hero.css">
+    <link rel="stylesheet" href="assets/css/draft.css">
+    <link rel="stylesheet" href="assets/css/battle.css">
+
+    <script src="assets/js/config.js" type="module"></script>
+    <script src="assets/js/data/heroes.js" type="module"></script>
+    <script src="assets/js/lib.js"></script>        
+    <script src="assets/js/services/heroService.js"></script>
+    <script src="assets/js/services/hallOfFameService.js"></script>
+    <script src="assets/js/services/draftService.js" type="module"></script>
+    <script src="assets/js/pages/renderer.js"></script>
+    <script src="assets/js/pages/pages.js"></script>
+    <script src="assets/js/pages/heroes.js" type="module"></script>
+    <script src="assets/js/pages/draft.js" type="module"></script>
+    <script src="assets/js/pages/battle.js"></script>
+    <script src="assets/js/pages/hallOfFame.js"></script>    
+    <script src="assets/js/app.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <div class="navbar">
+            <h1>Battle team arena</h1>
+            <br>
+            <div class="btns">
+                <a href="#" id="heroes">All Heroes</a>
+                <a href="#" id="gotoarena">Go to arena</a>
+                <a href="#" id="halloffame">Hall of fame</a>
+            </div>
+        </div>
+    
+        <div class="heroes">
+            <div>
+                <div class="header">
+                    <div class="title">
+                        <h2>All heroes</h2>
+                    </div> 
+                    <div class="filters">
+                        <form action="">
+                          <div class="name-race">
+                           <div> Name <input type="text" name="name" id="inputdata"></div>
+                           <div>
+                            race <select name="type" id="selectracedata">
+                                <option value="">-All-</option>
+                                <option value="Android">Android</option>
+                                <option value="Asgardian">Asgardian</option>
+                                <option value="Cyborg">Cyborg</option>
+                                <option value="Czarnian">Czarnian</option>
+                                <option value="Flora Colossus">Flora Colossus</option>
+                                <option value="God / Eternal">God / Eternal</option>
+                                <option value="Human">Human</option>
+                                <option value="Human / Altered">Human / Altered</option>
+                                <option value="Human / Radiation">Human / Radiation</option>
+                                <option value="Human-Kree">Human-kree</option>
+                                <option value="Kakarantharaian">Kakarantharaian</option>
+                                <option value="Luphomoid">Luphomoid</option>
+                                <option value="Mutant">Mutant</option>
+                                <option value="Rodian">Rodian</option>
+                                <option value="Saiyan">Saiyan</option>
+                                <option value="Symbiote">Symbiote</option>
+                            </select>
+                           </div>
+                          </div>
+                           <div class="good-bad-sort">
+                           <div> <input type="checkbox" name="type" type id="gooddata" value="good"> good
+                            <input type="checkbox" name="type" id="baddata" value="bad"> bad
+                            <input type="checkbox" name="type" id="neutraldata" value="neutral"> neutral</div>
+                           <div> order by <select name="type" id="oderbydata">
+                            <option value="id">Id</option>
+                            <option value="name">Name</option>
+                            <option value="race">Race</option>
+                            <option value="alignment">Alignment</option>
+                            <option value="cost">Cost</option>
+                            <option value="priority">Priority</option>
+                        </select>
+                <select name="type" id="sortdata">
+                    <option value="asc">asc</option>
+                    <option value="desc">desc</option>
+                </select>
+                <button id="btnsubmit">Filter</button></div>
+                           </div>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="container">
+
+            </div>
+
+
+        </div>
+        <div class="Go-to-arena">
+            <div class="start-draft">
+                <div class="draft1 draft">
+                    <p style="font-size: 20px;text-align: center;">
+                        Open a booster pack and draft your Heroes.
+                    </p>
+                    <div class="draft-input">
+                       <div> <input type="radio" name="booster" id="inputgoodradio"><span id="goodvalue" > good (16)</span></div>
+                       <div> <input type="radio" name="booster" id="inputbadradio"><span id="badvalue"> bad (21)</span></div>
+                    </div>
+                    <div>
+                        <button class="draft-btn">start draft</button>
+                    </div>
+                </div>
+            </div>
+            <div class="open-a-booster-pack">
+                <div class="draft draft2">
+                    <p style="font-size: 20px; text-align: center;">
+                        Open a booster pack and draft your Heroes.
+                    </p>
+                    <div>
+                        <button class="battle-btn">start battle</button>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="progress">
+                <div class="progress-bars">
+                    <div class="progress1">
+                        <div>drafted heroes</div>
+                        <div class="progress-bar progress-bar-1">
+                            <div class="bar1"><div class="bar"></div></div> <span class="progress-text">0 / 5</span>
+                        </div>
+                    </div>
+                    <div class="progress2">
+                        <div>total cost</div>
+                        <div class="progress-bar progress-bar-2">
+                            <div class="bar2"><div class="bar"></div></div> <span class="progress-text">0 / 90</span>
+                        </div>
+                    </div>
+                    <div class="progress3">
+                        <div>total priority</div>
+                        <div class="progress-bar progress-bar-3">
+                            <div class="bar3"><div class="bar"></div></div> <span class="progress-text">0 / 30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container2">
+             
+            </div>
+            <div class="start-battle">
+                        <h2>Battle</h2>
+                        <button class="fight-btn">fight</button>
+            </div>
+            <div class="hero-section">
+                <h2>HEROES</h2>
+                <div class="container3">
+
+                </div>
+
+            </div>
+            <div class="villain-section">
+                <h2>VILLAINS</h2>
+                <div class="container4">
+                    
+                </div>
+
+            </div>
+            <div class="fight">
+                <h2>HaLL Of Fame</h2>
+                <div class="container5">
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+</body>
+</html>
